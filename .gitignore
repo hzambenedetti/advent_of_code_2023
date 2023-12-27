@@ -1,3 +1,3 @@
-**.txt
-**.lock
+**/*.txt
+**/*.lock
 **/target
