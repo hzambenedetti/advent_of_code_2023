@@ -7,6 +7,8 @@ pub struct Play{
 
 type Game = Vec<Play>;
 
+//============================================ SOLUTIONS =======================================//
+
 pub fn solution_one(games: &[(usize, Game)], (r, g, b): (usize, usize, usize)) -> usize{
     let mut total: usize = 0;
     for (id, game) in games.iter(){
@@ -42,6 +44,8 @@ pub fn solution_two(games: &[(usize, Game)]) -> usize{
     }
     total
 }
+
+//============================================ AUXILIARY FUNCTIONS =======================================//
 
 pub fn parse_file(file: &str) -> Vec<(usize, Game)>{
     let mut games: Vec<(usize, Game)> = Vec::new();
