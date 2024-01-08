@@ -1,9 +1,9 @@
 #[derive(Debug)]
 pub struct Map{
-    id: usize,
-    src: String,
-    dest: String,
-    mapping: Vec<(usize, usize, usize)>,
+    pub id: usize,
+    pub src: String,
+    pub dest: String,
+    pub mapping: Vec<(usize, usize, usize)>,
 }
 
 
