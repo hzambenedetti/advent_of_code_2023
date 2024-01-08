@@ -1,11 +1,8 @@
 
-pub fn solution_one(input: &mut Vec<(usize, Vec<usize>, Vec<usize>)>) -> u32{
+pub fn solution_one(input: &Vec<(usize, Vec<usize>, Vec<usize>)>) -> u32{
     let mut total: u32 = 0;
     
-    for (_, win, nums) in input.iter_mut(){
-        win.sort();
-        nums.sort();
-        
+    for (_, win, nums) in input.iter(){
         let mut exp: u32 = 0;
         for val in win.iter(){
             if nums.binary_search(val).is_ok(){
@@ -21,13 +18,10 @@ pub fn solution_one(input: &mut Vec<(usize, Vec<usize>, Vec<usize>)>) -> u32{
     total    
 }
 
-pub fn solution_two(input: &mut Vec<(usize, Vec<usize>, Vec<usize>)>) -> u32{
+pub fn solution_two(input: &Vec<(usize, Vec<usize>, Vec<usize>)>) -> u32{
     let mut count: Vec<usize> = vec![1; input.len() + 1];
 
-    for (id, win, nums) in input.iter_mut(){
-        win.sort();
-        nums.sort();
-        
+    for (id, win, nums) in input.iter(){
         let mut points: usize = 0;
         for val in win.iter(){
             if nums.binary_search(val).is_ok(){
@@ -47,5 +41,5 @@ pub fn solution_two(input: &mut Vec<(usize, Vec<usize>, Vec<usize>)>) -> u32{
 
     }
     
-    count.iter().sum::<usize>() as u32 - 1
+    count[1..].iter().sum::<usize>() as u32
 }
