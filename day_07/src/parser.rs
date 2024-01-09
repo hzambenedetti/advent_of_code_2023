@@ -1,14 +1,14 @@
 
-pub fn parse_input(input: &str) -> Vec<(Vec<u8>, usize)>{
+pub fn parse_input(input: &str) -> Vec<(&str, usize)>{
     input.lines().filter_map(|line|{
         parse_line(line)
-    }).collect::<Vec<(Vec<u8>, usize)>>()
+    }).collect::<Vec<(&str, usize)>>()
 }
 
-fn parse_line(input: &str) -> Option<(Vec<u8>, usize)>{
+fn parse_line(input: &str) -> Option<(&str, usize)>{
     if let Some((hand, bid)) = input.split_once(' '){
         if let Ok(num) = bid.parse::<usize>(){
-            return Some((parse_hand(hand), num));
+            return Some((hand, num));
         }
     }
     None
