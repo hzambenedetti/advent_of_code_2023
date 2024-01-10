@@ -1,4 +1,4 @@
-use std::fs;
+use std::{fs, time::Instant};
 
 use solution::{solution_one, solution_two};
 
@@ -10,8 +10,12 @@ fn main() {
     let (seeds, maps) = parser::parse_input(&input);
 
     let solution_one = solution_one(&seeds, &maps);
+    
+    let start = Instant::now();
     let solution_two = solution_two(&seeds, &maps);
+    let dt = start.elapsed().as_secs_f64();
 
     println!("answer one: {solution_one}");
     println!("answer two: {solution_two}");
+    println!("Execution time for answer two: {dt}");
 }
