@@ -1,4 +1,4 @@
-pub fn solution_one(input: &Vec<Vec<char>>) -> usize{
+pub fn solution(input: &Vec<Vec<char>>, solve: u8) -> usize{
     let mut empty_lines = vec![true; input.len()];
     let mut empty_columns = vec![true; input[0].len()];
     let mut galaxies: Vec<(usize, usize)> = Vec::new();
@@ -24,11 +24,17 @@ pub fn solution_one(input: &Vec<Vec<char>>) -> usize{
             let mut distance = gi-si + gj-sj;
             empty_lines[si..gi].iter()
                 .for_each(|&empty|{
-                    if empty{distance += 1;}
+                    if empty{
+                        if solve == 2{distance += 999_999;}
+                        else {distance += 1}
+                    }
                 });
             empty_columns[sj..gj].iter()
                 .for_each(|&empty|{
-                    if empty{distance += 1;}
+                    if empty{
+                        if solve == 2{distance += 999_999;}
+                        else {distance += 1}
+                    }
                 });
             total += distance;
         }

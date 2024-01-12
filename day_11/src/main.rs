@@ -1,6 +1,6 @@
 use std::fs;
 
-use solution::solution_one;
+use solution::solution;
 
 mod parser;
 mod solution;
@@ -10,7 +10,9 @@ fn main() {
 
     let map = parser::parse_input(&input);
     
-    let solution_one = solution_one(&map);
+    let solution_one = solution(&map, 1);
+    let solution_two = solution(&map, 2);
 
     println!("answer one: {solution_one}");
+    println!("answer two: {solution_two}");
 }
